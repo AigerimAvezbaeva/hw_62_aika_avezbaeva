@@ -26,7 +26,7 @@ class Issue(models.Model):
         verbose_name='Тип',
         blank=True
     )
-    projects = models.ForeignKey(
+    project = models.ForeignKey(
         to='tracker_app.Project',
         related_name='issues',
         verbose_name='Проект',
