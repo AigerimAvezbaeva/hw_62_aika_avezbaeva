@@ -4,6 +4,7 @@
 }
 .card{
     margin: 20px;
+    padding:10px;
 }
 .small-card{
     width: 50%;
