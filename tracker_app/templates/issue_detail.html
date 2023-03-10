@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Confirm delete
+{% endblock %}
+{% block menu %}
+<a class="nav-link active" aria-current="page" href="{% url 'update_issue' issue.pk %}">Редактировать</a>
+<a class="nav-link" href="{% url 'delete_issue' issue.pk %}">Удалить</a>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <main class="main">
+        <div class="container">
+            <div class="card">
+                <div class="card-head">
+                    <div class="title">
+                        <h3 class="par-title">{{ issue.summary }} </h3>
+                        <p class="par-title">Тип: {% for type in issue.type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <p class="par-title">Статус: {{ issue.status }}</p>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p>{{ issue.description }}</p>
+                </div>
+            </div>
+
+
+</div>
+</main>
+</div>
+{% endblock %}
+

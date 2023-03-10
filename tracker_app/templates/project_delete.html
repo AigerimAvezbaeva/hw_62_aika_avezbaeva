@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+Confirm delete
+{% endblock %}
+{% block menu %}
+<a class="nav-link active" aria-current="page" href="{% url 'add_project' %}">Добавить Проект</a>
+<a class="nav-link" href="{% url 'update_project' project.pk %}">Редактировать</a>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <main class="main">
+        <div class="container">
+            <h2 class="qwerty">Вы точно хотите удалить данный проект?</h2>
+            <div class="card">
+                <div class="card-head">
+                    <div class="title">
+                        <h3 class="par-title">{{ project.name }} </h3>
+                        <p class="par-title">Дата завершения: {{ project.completed_at }}</p>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p>{{ project.description }}</p>
+                </div>
+            </div>
+
+        <form action="{% url 'delete_project' project.pk %}" method="POST">
+            {% csrf_token %}
+            <div>
+            <div class="form_row">
+            <p class="parlink pro">
+                <button type="submit" class="btn btn-danger">Да</button>
+           </p>
+            <p><a href="{% url 'index' %}" class="parlink pro">
+                <button type="button" class="btn btn-success">Нет</button>
+            </a></p>
+                </div>
+            </div>
+        </form>
+</div>
+</main>
+</div>
+{% endblock %}
+

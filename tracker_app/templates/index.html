@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+HOME
+{% endblock %}
+{% block menu %}
+    <a class="nav-link active" aria-current="page" href="{% url 'add_project' %}">Добавить проект</a>
+    <a class="nav-link active" aria-current="page" href="{% url 'add_issue' %}">Добавить задачу</a>
+{% endblock %}
+{% block content %}
+<div class="container">
+    {% include 'partial/search_form.html' %}
+    {% for issue in issues %}
+    <div class="card">
+        <h3>Задача: {{ issue.summary }}</h3>
+        <h5>Статус: {{ issue.status }}</h5>
+        <h5>Тип задачи: {% for type in issue.type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</h5>
+        <h5>{% if project %} Проект: {% for project in issue.project.all %}{{ project.name }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}</h5>
+        <p><a href="{% url 'issue_detail' issue.pk %}">Подробнее..</a></p>
+    </div>
+    {%endfor%}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock content %}
+</div>

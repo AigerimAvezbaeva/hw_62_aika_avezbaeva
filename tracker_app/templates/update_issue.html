@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Update Task/Issue
+{% endblock %}
+{% block menu%}
+<a class="nav-link active" aria-current="page" href="{% url 'add_issue' %}">Добавить задачу</a>
+{% endblock %}
+{% block content %}
+
+<main class="main">
+    <div class="container">
+    <div class="card">
+  <form action="{% url 'update_issue' issue.pk %}" method="post">
+        {% include 'partial/form.html' with button_text='Сохранить' %}
+  </form>
+</div>
+</div>
+</main>
+
+{% endblock %}

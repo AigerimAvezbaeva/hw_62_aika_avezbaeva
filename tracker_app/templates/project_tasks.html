@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+HOME
+{% endblock %}
+{% block menu %}
+<a class="nav-link active" aria-current="page" href="{% url 'add_issue' %}">Добавить задачу</a>
+{% endblock %}
+{% block content %}
+<div class="container">
+        <div class="card-head">
+            <div class="title">
+                <h3 class="par-title">{{ project.name }} </h3>
+                <h5>Дата окончания проекта: {{ project.completed_at }}</h5>
+            </div>
+    </div>
+    <h3>Задачи данного проекта:</h3>
+    <div class="comment-list">
+        {% for issue in projects.issues.all %}
+        <div class="card">
+        <h3>Задача: {{ issue.summary }}</h3>
+        <h5>Статус: {{ issue.status }}</h5>
+        <h5>Тип задачи: {% for type in issue.type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</h5>
+        <h5>{% if project %} Проект: {% for project in issue.project.all %}{{ project.name }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}</h5>
+        <p><a href="{% url 'issue_detail' issue.pk %}">Подробнее..</a></p>
+    </div>
+        {% empty %}
+        <p>Данный проект не содержит задач.</p>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>
+

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+Confirm delete
+{% endblock %}
+{% block menu %}
+<a class="nav-link active" aria-current="page" href="{% url 'add_issue' %}">Добавить Задачу</a>
+<a class="nav-link" href="{% url 'update_issue' issue.pk %}">Редактировать</a>
+{% endblock %}
+{% block content %}
+<div class="wrapper">
+    <main class="main">
+        <div class="container">
+            <h2 class="qwerty">Вы точно хотите удалить данную задачу?</h2>
+            <div class="card">
+                <div class="card-head">
+                    <div class="title">
+                        <h3 class="par-title">{{ issue.summary }} </h3>
+                        <p class="par-title">Тип: {{ issue.types }}</p>
+                        <p class="par-title">Статус: {{ issue.status }}</p>
+                    </div>
+                </div>
+                <div class="card-text">
+                    <p>{{ issue.description }}</p>
+                </div>
+            </div>
+
+        <form action="{% url 'delete_issue' issue.pk %}" method="POST">
+            {% csrf_token %}
+            <div>
+            <div class="form_row">
+            <p class="parlink pro">
+                <button type="submit" class="btn btn-danger">Да</button>
+           </p>
+            <p><a href="{% url 'index' %}" class="parlink pro">
+                <button type="button" class="btn btn-success">Нет</button>
+            </a></p>
+                </div>
+            </div>
+        </form>
+</div>
+</main>
+</div>
+{% endblock %}
+
