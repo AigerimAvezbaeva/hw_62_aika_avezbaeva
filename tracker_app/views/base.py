@@ -14,6 +14,7 @@ class IndexView(ListView):
     ordering = ('-created_at',)
     paginate_by = 2
     paginate_orphans = 1
+    queryset = Issue.objects.filter(is_deleted=False)
 
     def get(self, request, *args, **kwargs):
         self.form = self.get_search_form()
