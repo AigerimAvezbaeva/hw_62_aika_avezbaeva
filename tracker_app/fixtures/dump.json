@@ -1,5 +1,23 @@
 [
 {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$Cp1N4Id24RZBWShhurqZai$EvuP2omxvMj+Rjx1cqOpo+5/qc/Vvpz19qTUi50iOS4=",
+        "last_login": "2023-03-14T18:02:29.661Z",
+        "is_superuser": true,
+        "username": "root",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-03-10T10:43:23.584Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
     "model": "tracker_app.project",
     "pk": 1,
     "fields": {
@@ -10,13 +28,33 @@
     }
 },
 {
+    "model": "tracker_app.project",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-03-10",
+        "completed_at": "2023-05-21",
+        "name": "Оформление возврата",
+        "description": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
+    }
+},
+{
+    "model": "tracker_app.project",
+    "pk": 5,
+    "fields": {
+        "created_at": "2023-03-10",
+        "completed_at": "2023-05-02",
+        "name": "Тест новой среды",
+        "description": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\""
+    }
+},
+{
     "model": "tracker_app.issue",
     "pk": 1,
     "fields": {
         "summary": "провести планерку",
         "description": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
         "status": 1,
-        "projects": 1,
+        "project": 1,
         "created_at": "2023-03-10",
         "updated_at": "2023-03-10",
         "type": [
@@ -31,7 +69,7 @@
         "summary": "починить отображение возврата в кабинете",
         "description": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
         "status": 1,
-        "projects": 1,
+        "project": 1,
         "created_at": "2023-03-10",
         "updated_at": "2023-03-10",
         "type": [
@@ -47,11 +85,43 @@
         "summary": "назначить созвон",
         "description": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"",
         "status": 3,
-        "projects": 1,
+        "project": 1,
         "created_at": "2023-03-10",
         "updated_at": "2023-03-10",
         "type": [
             2
+        ]
+    }
+},
+{
+    "model": "tracker_app.issue",
+    "pk": 4,
+    "fields": {
+        "summary": "cозвон с разрабами",
+        "description": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"",
+        "status": 3,
+        "project": 1,
+        "created_at": "2023-03-10",
+        "updated_at": "2023-03-10",
+        "type": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "tracker_app.issue",
+    "pk": 5,
+    "fields": {
+        "summary": "провести планерку",
+        "description": "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"",
+        "status": 1,
+        "project": 5,
+        "created_at": "2023-03-10",
+        "updated_at": "2023-03-10",
+        "type": [
+            2,
+            3
         ]
     }
 },
@@ -95,24 +165,6 @@
     "pk": 3,
     "fields": {
         "name": "Done"
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$390000$Cp1N4Id24RZBWShhurqZai$EvuP2omxvMj+Rjx1cqOpo+5/qc/Vvpz19qTUi50iOS4=",
-        "last_login": "2023-03-10T10:43:31.975Z",
-        "is_superuser": true,
-        "username": "root",
-        "first_name": "",
-        "last_name": "",
-        "email": "",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2023-03-10T10:43:23.584Z",
-        "groups": [],
-        "user_permissions": []
     }
 }
 ]
