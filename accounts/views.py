@@ -24,6 +24,8 @@ class LoginView(TemplateView):
         if not user:
             return redirect('index')
         login(request, user)
+        next = request.GET.get('next')
+        if next: return redirect(next)
         return redirect('index')
 
 
