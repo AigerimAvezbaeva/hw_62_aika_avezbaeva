@@ -3,7 +3,7 @@
 HOME
 {% endblock %}
 {% block menu %}
-<a class="nav-link active" aria-current="page" href="{% url 'add_issue' %}">Добавить задачу</a>
+<a class="nav-link active" aria-current="page" href="{% url 'project_task_create' project.pk %}">Добавить задачу к проекту</a>
 {% endblock %}
 {% block content %}
 <div class="container">
