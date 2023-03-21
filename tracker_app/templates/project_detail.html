@@ -3,9 +3,13 @@
 Confirm delete
 {% endblock %}
 {% block menu %}
+
+{% if perms.tracker_app.change_article or project.author == request.user %}
+<a class="nav-link active" aria-current="page" href="{% url 'add_project' %}">Добавить проект</a>
 <a class="nav-link active" aria-current="page" href="{% url 'project_task_create' project.pk %}">Добавить задачу к проекту</a>
 <a class="nav-link active" aria-current="page" href="{% url 'update_project' project.pk %}">Редактировать</a>
 <a class="nav-link" href="{% url 'delete_project' project.pk %}">Удалить</a>
+{% endif %}
 {% endblock %}
 {% block content %}
 <div class="wrapper">
