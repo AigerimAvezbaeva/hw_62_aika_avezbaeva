@@ -1,7 +1,8 @@
 from django.urls import path
 from tracker_app.views.base import IndexView
 from tracker_app.views.issues_view import IssueAddView, IssueDetail, IssueUpdateView, IssueDeleteView
-from tracker_app.views.projects_view import ProjectsIndexView, ProjectAddView, ProjectDetail, ProjectUpdateView, ProjectDeleteView, ProjectTasksView
+from tracker_app.views.projects_view import ProjectsIndexView, ProjectAddView, ProjectDetail, ProjectUpdateView, ProjectDeleteView, \
+    ProjectIssueCreateView,  ProjectTasksView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -14,6 +15,7 @@ urlpatterns = [
     path('issue/<int:pk>/update', IssueUpdateView.as_view(), name='update_issue'),
     path('projects/<int:pk>/update', ProjectUpdateView.as_view(), name='update_project'),
     path('projects/<int:pk>/tasks', ProjectTasksView.as_view(), name='project_tasks'),
+    path('projects/<int:pk>/tasks/add', ProjectIssueCreateView.as_view(), name='project_task_create'),
     path('issue/<int:pk>/delete', IssueDeleteView.as_view(), name='delete_issue'),
     path('projects/<int:pk>/delete', ProjectDeleteView.as_view(), name='delete_project'),
 ]

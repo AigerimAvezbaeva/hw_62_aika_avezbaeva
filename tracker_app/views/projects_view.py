@@ -5,8 +5,9 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from tracker_app.models import Project
 from tracker_app.forms import ProjectForm
-
 from tracker_app.models import Issue
+
+from tracker_app.forms import ProjectIssueForm
 
 
 class ProjectsIndexView(ListView):
@@ -51,7 +52,25 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
 class ProjectTasksView(LoginRequiredMixin, DetailView):
     template_name = 'project_tasks.html'
     model = Project
-    context_object_name = 'projects'
+    context_object_name = 'project'
     ordering = ('created_at',)
     paginate_by = 10
     paginate_orphans = 1
+
+
+class ProjectIssueCreateView(CreateView):
+    model = Issue
+    template_name = 'project_task_create.html'
+    form_class = ProjectIssueForm
+
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super().get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        issue = form.save(commit=False)
+        issue.project = project
+        issue.save()
+        return redirect('issue_detail', pk=issue.pk)
