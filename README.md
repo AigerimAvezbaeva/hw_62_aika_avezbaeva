@@ -1,3 +1,4 @@
-# hw_57_aigerim_avezbaeva
 root
 12345
+
+manager/lead/dev - Almaty@2023
