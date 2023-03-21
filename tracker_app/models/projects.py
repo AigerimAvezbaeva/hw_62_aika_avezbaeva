@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 
@@ -20,6 +21,11 @@ class Project(models.Model):
         max_length=3000,
         verbose_name='описание'
     )
+    # user = models.ManyToManyField(
+    #     settings.AUTH_USER_MODEL,
+    #     related_name='project_users',
+    #     verbose_name='пользователи'
+    # )
 
     def __str__(self):
         return self.name
