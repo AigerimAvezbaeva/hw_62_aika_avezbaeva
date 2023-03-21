@@ -33,9 +33,7 @@ class IssueForm(forms.ModelForm):
             message='Заголовок должен быть длиннее 5 символов'),
                     (CustomLenValidator()),))
     type = forms.ModelMultipleChoiceField(queryset=Type.objects.all())
-
-
-project = forms.ModelChoiceField(queryset=Project.objects.all())
+    project = forms.ModelChoiceField(queryset=Project.objects.all(), blank=False)
 
 
 class Meta:
