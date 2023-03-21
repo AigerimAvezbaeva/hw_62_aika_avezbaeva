@@ -1,7 +1,6 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils import timezone
-
-from tracker_app.models.projects import Project
 
 
 class Issue(models.Model):
@@ -31,7 +30,6 @@ class Issue(models.Model):
         to='tracker_app.Project',
         related_name='issues',
         verbose_name='Проект',
-        blank=True,
         on_delete=models.PROTECT
     )
     created_at = models.DateField(
@@ -50,6 +48,7 @@ class Issue(models.Model):
         verbose_name='Дата и время удаления',
         null=True,
         default=None)
+    # user = models.ForeignKey(get_user_model(), on_delete=models.SET_DEFAULT, default=1, related_name='issues', verbose_name='Автор')
 
     def delete(self, using=None, keep_parents=False):
         self.is_deleted = True
