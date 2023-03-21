@@ -15,6 +15,7 @@ Confirm delete
                     <div class="title">
                         <h3 class="par-title">{{ issue.summary }} </h3>
                         <p class="par-title">Тип: {% for type in issue.type.all %}{{ type.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                        <p class="par-title">Проект: {{ issue.project }}</p>
                         <p class="par-title">Статус: {{ issue.status }}</p>
                     </div>
                 </div>
