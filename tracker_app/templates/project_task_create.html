@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Issue/Task to the Project
+{% endblock %}
+{% block menu%}
+{% endblock %}
+{% block content %}
+
+<main class="main">
+    <div class="container">
+    <div class="card">
+  <form action="{% url 'project_task_create' project.pk %}" method="post">
+        {% include 'partial/form.html' with button_text='Добавить' %}
+  </form>
+</div>
+</div>
+</main>
+
+{% endblock %}
